@@ -250,8 +250,7 @@ model Task {
 
 For support:
 - Create GitHub issue
-- Email: ismetsemedov@gmail.com
-
+  
 ## Contributing
 
 1. Fork repository
