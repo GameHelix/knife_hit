@@ -10,7 +10,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@prisma/client": "^5.22.0",
+    "@prisma/client": "^6.16.3",
     "bcryptjs": "^2.4.3",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.465.0",
@@ -30,7 +30,7 @@
     "eslint": "^8",
     "eslint-config-next": "^14.2.18",
     "postcss": "^8",
-    "prisma": "^5.22.0",
+    "prisma": "^6.16.3",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
