@@ -3,6 +3,34 @@
 ## Overview
 MyFrog is a modern task and project management system built with Next.js 14, featuring real-time updates, project organization, and comprehensive task tracking. The application provides an intuitive interface for managing projects and tasks efficiently.
 
+## Screenshots
+
+### Landing Page
+![Landing Page](./screenshots/landing%20page.png)
+*Welcome to MyFrog - Modern task management interface*
+
+### Authentication
+
+#### Sign In
+![Sign In Page](./screenshots/sign%20in%20page.png)
+*Secure authentication with email and password*
+
+#### Sign Up
+![Sign Up Page](./screenshots/sign%20up%20page.png)
+*Create your account to get started*
+
+### Dashboard
+![Dashboard](./screenshots/dashboard%20page.png)
+*Main dashboard showing all your projects at a glance*
+
+### Project Management
+![Create Project](./screenshots/create%20project%20page.png)
+*Create and organize projects with custom colors*
+
+### Task Management
+![Add Tasks](./screenshots/add%20tasks%20to%20project.png)
+*Add and manage tasks within projects with priorities and due dates*
+
 ## Project Structure Explanation
 
 ```plaintext
