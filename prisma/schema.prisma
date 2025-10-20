@@ -1,6 +1,7 @@
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  schemas  = ["myfrog"]
 }
 
 generator client {
@@ -23,6 +24,7 @@ model Project {
 
   @@index([userId])
   @@index([createdAt])
+  @@schema("myfrog")
 }
 
 model Task {
@@ -38,7 +40,7 @@ model Task {
   project     Project     @relation(fields: [projectId], references: [id])
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
-  deletedAt   DateTime?   
+  deletedAt   DateTime?
   isDeleted   Boolean     @default(false)
   events      TaskEvent[]
   position    Int         @default(0)  // For task ordering within projects
@@ -47,6 +49,7 @@ model Task {
   @@index([projectId])
   @@index([status])
   @@index([createdAt])
+  @@schema("myfrog")
 }
 
 model User {
@@ -58,7 +61,7 @@ model User {
   projects      Project[]      // New relation to projects
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
-  deletedAt     DateTime?     
+  deletedAt     DateTime?
   isDeleted     Boolean        @default(false)
   userActivity  UserActivity[]
   lastLoginAt   DateTime?
@@ -68,6 +71,7 @@ model User {
 
   @@index([email])
   @@index([createdAt])
+  @@schema("myfrog")
 }
 
 model UserActivity {
@@ -79,7 +83,7 @@ model UserActivity {
   ipAddress   String?
   userAgent   String?
   createdAt   DateTime    @default(now())
-  deletedAt   DateTime?   
+  deletedAt   DateTime?
   isDeleted   Boolean     @default(false)
   projectId   String?     // For project-related activities
 
@@ -87,13 +91,14 @@ model UserActivity {
   @@index([action])
   @@index([createdAt])
   @@index([projectId])
+  @@schema("myfrog")
 }
 
 model TaskEvent {
   id          String    @id @default(cuid())
   taskId      String
   task        Task      @relation(fields: [taskId], references: [id])
-  type        String    
+  type        String
   oldValue    String?
   newValue    String?
   createdAt   DateTime  @default(now())
@@ -102,6 +107,7 @@ model TaskEvent {
   @@index([taskId])
   @@index([type])
   @@index([projectId])
+  @@schema("myfrog")
 }
 
 enum Status {
@@ -110,6 +116,8 @@ enum Status {
   COMPLETED
   ON_HOLD      // New status
   CANCELLED    // New status
+
+  @@schema("myfrog")
 }
 
 enum Priority {
@@ -117,6 +125,8 @@ enum Priority {
   MEDIUM
   HIGH
   URGENT      // New priority level
+
+  @@schema("myfrog")
 }
 
 // New enum for project roles (can be used for future authorization)
@@ -125,4 +135,6 @@ enum ProjectRole {
   ADMIN
   MEMBER
   VIEWER
+
+  @@schema("myfrog")
 }
